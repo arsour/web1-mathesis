@@ -1,0 +1,35 @@
+<!-- πολλαπλασιασμός 2 αριθμών product.html -->
+<html>
+   <head>
+      <meta charset="utf-8">
+      <style>
+         body {font-family: Arial;
+               font-size: 1.2em;
+               color:red;}
+      </style>
+      <title>Γινόμενο 2 αριθμών</title>
+      <!--// υπολογισμός γινομένου 2 αριθμών -->
+      <script>
+         function product(){
+            "use strict";
+            let xVal = window.prompt( "πρώτος αριθμός:" );
+            let yVal = window.prompt( "δεύτερος αριθμός:" );
+            let x = parseFloat( xVal );
+            let y = parseFloat( yVal );
+            console.log(typeof x);
+            console.log(typeof xVal);
+            if (isNaN(x) || isNaN(y)){
+                document.querySelector("#result").innerHTML = "ΠΑΡΑΚΑΛΩ ΔΩΣΤΕ ΑΡΙΘΜΟ";
+            }
+            else {
+                let result = x * y;
+                document.querySelector("#result").innerHTML = "Το γινόμενο είναι: " + result ;
+            }
+         }
+      </script>
+   </head>
+   <body>
+       <button onclick="product()">Υπολογισμός γινομένου 2 αριθμών </button>
+       <p id="result"></p>
+   </body>
+</html>

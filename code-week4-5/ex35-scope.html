@@ -1,0 +1,32 @@
+<html>
+<body>
+    <script>
+        console.log('παράδειγμα 1. var σε συνάρτηση');
+        function printing(){
+            for(var κ = 0; κ<10; κ++) {
+                console.log(κ)
+            }
+            console.log(κ)
+        }
+        printing()
+        //console.log(κ) // Uncaught ReferenceError: κ is not defined
+
+        console.log('παράδειγμα 2. εμβέλεια συνάρτησης')
+        let x = 1;
+        function a() {  
+            let y = 2;  	
+            b(x);
+            b(y);
+        }
+        function b(value) {  
+            let p = document.createElement('p');      
+            document.body.appendChild(p);  
+            p.textContent = 'Value: ' + value;
+        }
+        a();
+
+    </script>
+</body>
+</html>
+
+<!-- εμβέλεια -->> 

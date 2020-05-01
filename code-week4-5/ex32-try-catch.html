@@ -1,0 +1,26 @@
+<html>
+<head>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        #demo {color:coral;}
+    </style>
+</head>
+<body>
+
+<h2>JavaScript try/catch</h2>
+
+<p>Το παράδειγμα δείχνει τη χρήση του <strong>catch</strong> για χειρισμό σφαλμάτων.</p>
+
+<p id="demo"></p>
+
+<script>
+    try {
+        adddlert("Welcome guest!");
+    }
+    catch(err) {
+        document.querySelector("#demo").innerHTML = "ERROR: "+err.message;
+    }
+</script>
+
+</body>
+</html>

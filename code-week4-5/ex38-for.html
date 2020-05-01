@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html>
+   <head>
+      <style> body {font-family: Arial;}</style>
+      <title>παράδειγμα for</title>
+      <script>
+        window.onload = function (){
+            para = document.querySelector("#mydiv");
+            for (let counter=1; counter <= 5; counter++) {
+                let newpara = document.createElement("p"); // create a <p> node
+                newpara.style.fontSize = counter + "em"; // append the text to <p>
+                let t = document.createTextNode("HTML font size " + counter + "em"); // append the text to <p>
+                newpara.appendChild(t); // append the text to <p>
+                para.appendChild(newpara); // append the <p> to <body>
+            }
+          }
+      </script>
+   </head>
+   <body>
+       <div id ='mydiv'></div>
+   </body>
+</html>
+
+<!-- check the difference between window.onload and document.onload-->

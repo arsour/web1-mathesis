@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+        let delay=0; //ελέγξτε για διαφορετικές τιμές του delay=0,100,1000 τι συμβαίνει
+        function func(){
+            console.log('alpha');
+            setTimeout(() => {console.log('beta'); 
+            }, delay);
+            console.log('gamma');
+        }
+        func();
+        </script>
+    </body>
+</html>
+
+// θεωρία για ασύγχρονη εκτέλεση της javascript event loop

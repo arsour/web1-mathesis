@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Παράδειγμα πρόσβασης στις ιδιότητες εικόνων</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        #button {
+            background-color: rgb(76, 91, 175);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+        }
+    </style>
+    <script>
+    function init() {
+    var arrImages = new Array(3);
+    for (var i=1; i<4; i++){
+        arrImages[i-1] = document.querySelector("#image"+i);
+    }
+    let objOutput = document.querySelector("#output");
+    let dimMessage = "";
+    for (var i = 0; i < arrImages.length; i++) {
+        dimMessage += "\nEIKONA-" + (i+1) + 
+                ": διαστάσεις=" + arrImages[i].width + " x " + arrImages[i].height +
+                ", διαστάσεις style =" + arrImages[i].style.width + " x " + arrImages[i].style.height;
+    }
+    return dimMessage;
+    }
+    function showImageData() {alert(init());}
+    </script>
+</head>
+<body>
+
+<p>EIKONA-1: χωρίς διαστάσεις ή style </p>
+  <img id="image1" src="https://source.unsplash.com/random/500x100">
+
+<p>EIKONA-2: διαστάσεις 150χ200, χωρίς style </p>
+  <img id="image2"
+       src="https://source.unsplash.com/random/300x400" 
+       width="150" height="200" >
+
+<p>EIKONA-3: χωρίς διαστάσεις αλλά με style="width: 200px; height: 150px;"</p>
+  <img id="image3"
+       src="https://source.unsplash.com/random/400x300" 
+       style="width: 200px; height: 150px; ">
+
+<div > 
+        <input type="submit" id="button" 
+            value="υπολογισμός διαστάσεων εικόνων" 
+            onclick="showImageData()">
+</div>
+</body>
+</html>

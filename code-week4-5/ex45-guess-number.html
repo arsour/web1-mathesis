@@ -1,0 +1,127 @@
+<html lang='el'>
+  <head>
+    <meta charset="utf-8">
+    <title>μάντεψε τον αριθμό</title>
+    <style>
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        }
+        heading, input, button {
+            font-size: 1.2em;
+        }
+        button {
+            background-color:teal;
+            color: whitesmoke;
+            border-radius: 8px;
+        }
+        #instructions, #guess, #low-high {
+          margin:15px;
+        }
+        #message {
+          width: 100%;
+          background-color: crimson;
+          color:floralwhite;
+          font-size: 1.2em;
+          text-align: center;
+          margin: 10px;
+        }
+        #restart {
+            visibility: hidden;
+        }
+        #check {
+            visibility: visible;
+        }
+        #low-high {
+            color:gray;
+        }
+    </style>
+  </head>
+  <body>
+    <heading>Παιχνίδι: μάντεψε τον αριθμό</heading>
+    <section id="instructions">
+        Έχουμε διαλέξει ένα τυχαίο αριθμό μεταξύ 1 και 100. 
+        Προσπάθησε να τον μαντέψεις σε 10 το πολύ προσπάθειες.
+        Κάθε φορά θα σού λέμε αν ο αριθμός που μάντεψες είναι μεγαλύτερος
+        ή μικρότερος από τον σωστό αριθμό.
+    </section>
+    <section id="guess">
+        <label for="new-guess">Μάντεψε: </label>
+        <input type="text" name="new-guess" size=5 id="new-guess">
+        <button onclick="checkGuess()" id="check"> Έλεγχος </button>
+    </section>
+    <section>
+        <div id="message">  </div>
+        <div id="low-high"></div>
+        <button onclick= "restart()" id= "restart"> Παίξε ξανά </button>
+    </section>    
+    <script>
+        const newGuess = document.querySelector("#new-guess");
+        const message = document.querySelector("#message");
+        const lowHigh = document.querySelector("#low-high");
+        const checkButton = document.querySelector("#check");
+        const restartButton = document.querySelector("#restart");
+        newGuess.addEventListener("keyup", checkKey);
+        let previousGuesses = [];
+        let theGuess;
+        window.onload = newRandom();
+        
+        function newRandom(){
+            theGuess = Math.floor(Math.random()*100+1);
+            //console.log("GUESS:", theGuess);
+        }
+        
+        function checkKey(e){
+            if (e.code == "Enter"){ //<enter> pressed, check guess
+                checkGuess();
+            }
+        }
+        function restart(){
+            restartButton.style.visibility = "hidden";
+            checkButton.style.visibility = "visible";
+            previousGuesses = [];
+            lowHigh.textContent = "";
+            message.textContent="";
+            newRandom();
+        }
+        function checkGuess(){
+            let result = processGuess();
+            if (result === "win" ||
+                result === "lost"){
+                restartButton.style.visibility = "visible";
+                checkButton.style.visibility = "hidden";
+            }
+        }
+        function processGuess(){
+            let newValue = parseInt(newGuess.value);
+            newGuess.value = "";
+            if (isNaN(newValue)){
+                message.textContent = "Δώσε αριθμό!";
+            }
+            else{
+                previousGuesses.push(newValue);
+                if (lowHigh.textContent == ""){
+                    lowHigh.textContent = "Προηγούμενες προσπάθειες: ";
+                }
+                lowHigh.textContent += newValue+ " "
+                if (newValue === theGuess){
+                    message.style.backgroundColor = "green";
+                    message.textContent = "Μπράβο το βρήκες!";
+                    return "win";
+                } 
+                else {
+                    if (previousGuesses.length >= 10){
+                        message.style.backgroundColor = "crimson";
+                        message.textContent = "Τέλος παιχνιδιού, έχασες!";
+                        return "lost";
+                    }
+                    else {
+                        (newValue > theGuess)?message.textContent = 'Λάθος, το ξεπέρασες':
+                                            message.textContent = 'Λάθος, είσαι πιο χαμηλά';
+                    }
+                }
+            }
+        }
+        newGuess.focus();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<html lang='el'>
+   <head>
+      <meta charset="utf-8">
+      <style>
+          body, form, input, button {
+              font-size: 1.2em;
+              font-family: Arial, Helvetica, sans-serif;
+          }
+          input {
+              color: darkgray;
+          }
+          #error {
+              color: red;
+          }
+      </style>
+      <title>Υπολογισμός μέσης τιμής βαθμών</title>
+      <script src="grades.js" defer></script>
+   </head>
+   <body>
+        <div>
+                <label> Βαθμός (0-10): <input type=number id=vathm min=0 max=10> </label>
+                <button id = "calc" > Εισαγωγή </button>
+                <button  id = "reset" > Καθαρισμός </button><br>
+        </div>
+        <label> Μέση τιμή: <input type=text id = "averg" readonly="" size=5></label>
+        <label> Πλήθος βαθμών: <input type=text id= "vathmoi" readonly="" size=5></label><br>
+        <p>Click Refresh (or Reload) to run the script again</p>
+        <p id="error"></p>
+   </body>
+</html>

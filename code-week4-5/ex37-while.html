@@ -1,0 +1,25 @@
+<html>
+<head>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+    </style>
+    <script>
+        window.onload = function() {
+            console.log("xxxx");
+            p = document.querySelector("#myp");
+            i = 0;
+            while (true) {
+                p.innerHTML +=  i + " * ";
+                i++;
+                if (i == 10) break;
+            }
+        }
+    </script> 
+</head>
+<body>
+    <p id = 'myp'></p>
+</body>
+</html>
+
+
+        

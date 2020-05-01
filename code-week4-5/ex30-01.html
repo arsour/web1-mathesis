@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width"> 
+    <title>Παράδειγμα 1</title>  
+    <style>
+        p {
+            font-family: sans-serif; 
+            text-align: center; 
+            border: 2px solid black; 
+            box-shadow: 1px 1px 2px; 
+            border-radius: 10px; 
+            padding: 3px 10px; 
+            display: inline-block; 
+            cursor: pointer; 
+            background-color: black;
+            color: white;}
+
+    
+    </style>	
+</head>
+<body>  
+  <p id="player">ΠΑΙΚΤΗΣ: ΟΝΟΜΑ</p>
+  <div>
+    <img id="player-image" src="">
+  </div>
+</body>
+<script>	
+    // JavaScript code 
+    let para = document.querySelector('p'); 
+    para.addEventListener('click', updateName); 
+    function updateName() {
+        let name = prompt('Το όνομα του παίκτη: '); 
+        para.textContent = 'ΠΑΙΚΤΗΣ: ' + name; 
+        let im = document.querySelector("#player-image");
+        if (name !== "") {
+            let lastChar = name.substr(name.length -1);
+            if (lastChar.toUpperCase() === "Σ" ||
+                lastChar.toUpperCase() === "Ν"){
+                para.style.backgroundColor = "green";
+                im.src= "https://source.unsplash.com/300x300/?boy";  
+            }
+            else {
+                para.style.backgroundColor = "pink";
+                im.src= "https://source.unsplash.com/300x300/?girl";
+                
+            }
+        }
+    }
+</script>
+</html>

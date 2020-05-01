@@ -1,0 +1,66 @@
+<html lang='el'>
+   <head>
+      <meta charset="utf-8">
+      <style>
+          body, form, input, button {
+              font-size: 1.2em;
+              font-family: Arial, Helvetica, sans-serif;
+          }
+          input {
+              color: darkgray;
+          }
+          #error {
+              color: red;
+          }
+      </style>
+      <title>Υπολογισμός μέσης τιμής βαθμών</title>
+      <script>
+         let total = 0; // sum of grades
+         let gradeCounter = 0; // number of grades entered
+         function calculate(){
+           let gradeValue = parseInt(document.querySelector("#vathm").value);
+           console.log("gradevalue=", gradeValue);
+           document.querySelector("#vathm").value = "";
+
+           if (gradeValue>10 || gradeValue<0){
+                document.querySelector("#error").innerHTML = "Please enter a number between 0 and 10"
+           }
+           else if(!isNaN(gradeValue) ){
+                document.querySelector("#averg").value = average_vathmoi(gradeValue);
+                document.querySelector("#error").innerHTML = "";
+           }
+           else {
+                document.querySelector("#error").innerHTML = "Please enter a number";
+           }
+         }
+         function average_vathmoi(gradevalue){
+           total += gradevalue;
+           gradeCounter += 1
+           document.querySelector("#vathmoi").value = gradeCounter;
+           average = total / gradeCounter;
+           console.log(total, average)
+           return average
+         }
+        function reset(){
+        // reset the global variables
+          total = 0;
+          gradeCounter = 0;
+          document.querySelector("#vathm").value = "";
+          document.querySelector("#averg").value = "";
+          document.querySelector("#vathmoi").value = "";
+          return false;
+        }
+      </script>
+   </head>
+   <body>
+        <div>
+                <label> Βαθμός (0-10): <input type=number id=vathm min=0 max=10> </label>
+                <button onclick="calculate()"> Εισαγωγή </button>
+                <button  onclick='reset()' > Καθαρισμός </button><br>
+        </div>
+        <label> Μέση τιμή: <input type=text id = "averg" readonly="" size=5></label>
+        <label> Πλήθος βαθμών: <input type=text id= "vathmoi" readonly="" size=5></label><br>
+        <p>Click Refresh (or Reload) to run the script again</p>
+        <p id="error"></p>
+   </body>
+</html>

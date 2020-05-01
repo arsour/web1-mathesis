@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='el'>
+    <head>
+        <meta charset="utf-8">
+        <title>Πίνακας ανατοκισμού</title>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            button {
+            background-color:teal;
+            color: whitesmoke;
+            border-radius: 8px;
+        }
+        input, button {
+            font-size: 0.8em;
+        }
+        table th, table td, tr {
+            border: 1px solid black;
+            margin: 10px;
+            text-align:center;
+        }
+        .year {
+            width:20%;
+        }
+        .year-capital {
+            width:50%;
+            background-color: beige;
+        }
+        </style>
+    </head>
+    <body>
+        <section id="enter-data">
+            <label for="period">Περίοδος: </label>
+            <input type="text" name="period" size=5 id="period"> έτη<br>
+            <label for="interest">Επιτόκιο : </label>
+            <input type="text" name="interest" size=5 id="interest">%<br>
+            <label for="capital">Κεφάλαιο: </label>
+            <input type="text" name="capital" size=10 id="capital"> ευρώ<br>            
+            <button onclick="createTable()" id="create-table"> Δημιουργία Πίνακα </button>
+        </section>
+        <main>
+            <table id="interest-table">
+
+            </table>
+        </main>
+        <script>
+            const period = document.querySelector("#period");
+            const interest = document.querySelector("#interest");
+            const capital = document.querySelector("#capital");
+            const table = document.querySelector("#interest-table");
+            //console.log(period, interest, capital);
+            function createRow(i,v){
+                let value = v.toFixed(2);
+                let row = document.createElement('tr');
+                let cell1 = document.createElement('td');
+                cell1.setAttribute("class", "year");
+                let cell2 = document.createElement('td');
+                cell2.setAttribute("class", "year-capital");
+                cell1.textContent = i.toString();
+                cell2.textContent = value.toString();
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                return row
+            }
+            function createTable(){
+                console.log(period.value, interest.value, capital.value);
+                if (isNaN(period.value) || isNaN(interest.value) || isNaN(capital.value)){
+                    console.log('please give numbers');
+                    return false;
+                } else{
+                    let periodValue = parseFloat(period.value);
+                    let interestValue = parseFloat(interest.value)/100;
+                    let capitalValue = parseFloat(capital.value);
+                    let row;
+                    let cell;
+                    for (child of document.querySelectorAll("tr")){
+                        table.removeChild(child);
+                    }
+                    row = document.createElement("tr");
+                    for (text of ["Έτος", "Κεφάλαιο"]){
+                        cell = document.createElement("th");
+                        if (text=="Έτος"){
+                            cell.setAttribute("class", "year");
+                        }else{
+                            cell.setAttribute("class", "year-capital");
+                        }
+                        cell.textContent = text;
+                        row.appendChild(cell);
+                    }
+                    table.appendChild(row);
+                    for (let i= 1; i<=periodValue;i++){
+                        capitalValue *= 1+interestValue;
+                        row = createRow(i, capitalValue);
+                        table.appendChild(row);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

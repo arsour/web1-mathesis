@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.8em;
+                color: cadetblue;
+            }
+            td, tr {
+                margin: 2em;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <table  id="dice">
+                <caption>Τυχαίοι αριθμοί</caption>
+            </table>
+        </section>
+        <script>
+            let table = document.querySelector("#dice");
+            let cell;
+            let value;  
+            let row = document.createElement('tr');
+            for ( let i = 1; i <= 20; i++ ) {
+                value = Math.floor( 1 + Math.random() * 6 );
+                cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+                if ( i % 5 === 0 ){
+                    table.appendChild(row);
+                    if (i !== 20)
+                        row = document.createElement('tr');
+                } // end if
+            } // end for
+        </script>
+
+    </body>
+</html>

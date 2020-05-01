@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html>
+   <head>
+      <style> 
+        body {font-family: Arial;}
+        button {font-size: 1.2em;}
+        #warning {color: red;
+            background-color: gainsboro;}
+      </style>
+      <title>παράδειγμα αλλαγής χρώματος σελίδας</title>
+   </head>
+   <body>
+    <p>
+            <button onclick="changeColor()"> Αλλαγή χρώματος </button>
+    </p>
+    <p id ="warning"></p>
+    <script>
+        "use strict";
+        let body = document.querySelector("body");
+        function changeColor() {
+            let newColor = prompt("Νέο χρώμα: ");
+            body.style.backgroundColor = newColor;
+            if (newColor != body.style.backgroundColor){
+                document.querySelector("#warning").innerHTML = "Προσοχή δώστε όνομα χρώματος!!";
+            }
+            else {
+                document.querySelector("#warning").innerHTML = "";
+            }
+        }
+    </script>
+   </body>
+</html>

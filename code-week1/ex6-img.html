@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='el'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>responsive images</title>
+    <style>
+      html {
+        font-family: sans-serif;
+        background-color:#e7e1e1;
+      }
+
+      body {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: rgb(241, 233, 233);
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      figcaption {
+          padding: 10px;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Το νησί Mull</h1>
+        <p>Μια βροχερή καλοκαίριατικη μέρα τρέχαμε βιαστικά να 
+            φτάσουμε στη δυτική ακτή του νησιού, τότε μπροστά μας 
+            εμφανίστηκε ένα μεγάλο κοπάδι με τα βόδια των υψίπεδων
+            της Σκωτίας. Τα ακολουθούσαν οι τσομπάνηδες πάνω σε μηχανές.
+            </p>
+        
+        <figure>
+            <picture>
+                <source media="(max-width: 650px)" srcset="mull-600.jpg">
+                <img src="mull-1500.jpg" alt="Βοσκοί οδηγούν κοπάδι από βόδια στο νησί Mull" 
+                    title="βοσκοί οδηγούν κοπάδι από hairy coo" ">
+            </picture>
+            <figcaption>Νησί Mull, Σκωτία, 2019</figcaption>
+        </figure>
+
+        <p>Τα ζώα κινούσαν αργά. Το μακρύ καφέ τρίχωμά τους, 
+            να πέφτει μπροστά στα μάτια τους. Δεν έδειχναν να 
+            ενοχλούνται από την παρουσία μας, η τις φωνές των 
+            χωρικών. Έδεναν τέλεια με την ηρεμία του τοπίου.
+    </p>
+      </section>
+    </main>
+  </body>
+</html>

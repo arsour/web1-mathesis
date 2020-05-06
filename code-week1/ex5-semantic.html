@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Η σελίδα αυτή δείχνει πώς να χρησιμοποιούμε σημασιολογικά στοιχεία
+καθώς επίσης και πώς να χρησιμποιούμε fonts από τη google -->
+    
+<html lang='el'>
+  <head>
+    <meta charset="utf-8">
+    <title>Η σελίδα μου</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A2:wght@200&display=swap" rel="stylesheet">
+    <!-- οι παρακάτω γραμμές επιτρέπουν τα σημασιολογικά στοιχεία της HTML5 να λειτουργούν σε παλιές εκδόσεις του Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      body {
+        font-family: 'Gothic A2', sans-serif;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ο header για όλες τις σελίδες -->
+    <header>
+      <h1>Κεφαλίδα</h1>
+    </header>
+
+    <nav>
+      Πλοήγηση
+      <ul>
+        <li><a href="#">Αρχική σελίδα</a></li>
+        <li><a href="#">Η ομάδα μας</a></li>
+        <li><a href="#">Τα πρότζετκ μας</a></li>
+        <li><a href="#">Επικοινωνία</a></li>
+      </ul>
+
+       <!-- Πεδίο αναζήτησης. -->
+       <form>
+         <input type="search" name="q" placeholder="αναζήτηση">
+         <input type="submit" value="οκ">
+       </form>
+     </nav>
+
+    <!-- Το σώμα της σελίδας -->
+    <main>
+
+      <!-- ένα στοιχείο τύπου article -->
+      <article>
+        <h2>Ο τίτλος του άρθρου</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
+
+        <h3>Κεφάλαιο </h3>
+
+        <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
+
+        <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.</p>
+
+        <h3>Άλλο κεφάλαιο</h3>
+
+        <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
+
+        <p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio. Maecenas convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, is fringille sem nunc vet mi.</p>
+      </article>
+
+      <!-- the aside content can also be nested within the main content -->
+      <aside>
+        <h2>Άλλα σχετικά</h2>
+
+        <ul>
+          <li><a href="#">Πρόσθετη βιβλιογραφία</a></li>
+          <li><a href="#">Άλλες πηγές</a></li>
+          <li><a href="#">Πολυμεσικό υλικό</a></li>
+        </ul>
+      </aside>
+
+    </main>
+
+    <!-- το υποσέλιδο -->
+
+    <footer>
+      <p>©Copyright 2050 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            #red, #green {
+                height: 200px;
+                width: 200px;
+                color: white;
+            }
+            #red{
+                background-color: red;
+                position: absolute;
+                top: 50px;
+                left: 100px;
+                z-index: -2;
+            }
+            #green{
+                background-color: green;
+                position: absolute;
+                top: 100px;
+                left: 150px;
+                z-index: -3
+            }
+            img{
+                position: absolute;
+                top: 100px;
+                left:500px;
+                height:200px;
+            }
+            #shadow {
+                position: relative;
+                right: 10px;
+                bottom: 20px;
+                z-index:-1;
+            }
+        </style>
+
+    </head>
+    <body>
+        <p id='red'>Το κόκκινο κουτί</p>
+        <p id='green'>Το πράσινο κουτί</p>
+    </body>
+    
+</html>

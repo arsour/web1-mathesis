@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;
+          font-size: 1.2em;}
+    video {
+        padding: 5px;
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <p>Ο αγουροξυπνημένος λαγός</p>
+        <video  controls width =70%>
+            <source src="./bunny.mp4" type="video/mp4">
+            <track label="English" kind="subtitles" 
+                src="./bunny.vtt" srclang="en">
+            <track default label="Ελληνικά" kind="subtitles" 
+                src="./bunny_el.vtt" srclang="el">
+            <track label="French" kind="subtitles" 
+                src="./bunny_fr.vtt" srclang="fr">
+        </video>
+    </section>
+</body>
+</html>
+
+<!-- 
+πρόβλημα με CORS security setting in Chrome, Firefox  τρέχει σε Safari
+μπορεί να εκτελεστεί από vs code με το add on Go Live ή να εκτελεστεί με χρήση
+του bunny_server.py 
+
+-->
